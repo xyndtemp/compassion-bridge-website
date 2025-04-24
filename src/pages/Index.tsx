@@ -1,8 +1,9 @@
-
 import { Heart, Users, Home, HandshakeIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import FloatingDonateButton from "@/components/FloatingDonateButton";
 
 const Index = () => {
   return (
@@ -113,40 +114,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-primary text-white py-12 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Compassion Bridge</h3>
-              <p className="text-sm">Building a more compassionate world, one person at a time.</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li><a href="#mission" className="hover:text-secondary">Our Mission</a></li>
-                <li><a href="#services" className="hover:text-secondary">Services</a></li>
-                <li><a href="#impact" className="hover:text-secondary">Impact</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contact</h3>
-              <p className="text-sm">1234 Compassion Way<br />City, State 12345<br />info@compassionbridge.org</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#" className="hover:text-secondary">Facebook</a>
-                <a href="#" className="hover:text-secondary">Twitter</a>
-                <a href="#" className="hover:text-secondary">Instagram</a>
-              </div>
-            </div>
-          </div>
-          <div className="mt-8 pt-8 border-t border-white/20 text-center">
-            <p className="text-sm">&copy; 2024 Compassion Bridge Initiative. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <FloatingDonateButton />
+      <Footer />
     </div>
   );
 };
