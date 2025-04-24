@@ -4,14 +4,15 @@ import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FloatingDonateButton from "@/components/FloatingDonateButton";
+import ImageSlideshow from "@/components/ImageSlideshow";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      {/* Hero Section */}
-      <section className="relative bg-primary text-white py-20 px-4">
+      {/* Hero Section with animation */}
+      <section className="relative bg-primary text-white py-20 px-4 animate-fade-in">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-up">
             Building Bridges of Compassion
@@ -26,7 +27,7 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4">
+      <section id="services" className="py-20 px-4 animate-fade-in [animation-delay:200ms]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Core Services</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -71,6 +72,9 @@ const Index = () => {
                 We envision a world where compassion, empathy, and understanding are the guiding principles of our society. A world where individuals can live with dignity, purpose, and hope.
               </p>
             </div>
+          </div>
+          <div className="mt-12">
+            <ImageSlideshow />
           </div>
         </div>
       </section>

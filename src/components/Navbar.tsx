@@ -1,33 +1,58 @@
-
 import { useState } from 'react';
 import { Menu, X, Search, ChevronDown, Globe } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Command, CommandInput } from './ui/command';
+import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from './ui/command';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { useSearch } from '@/hooks/use-search';
+import { useLanguage, languages } from '@/hooks/use-language';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { search, results } = useSearch();
+  const { currentLanguage, setLanguage } = useLanguage();
 
   return (
     <nav className="bg-white shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-primary">Compassion Bridge</span>
+            <span className="text-2xl font-bold text-primary animate-fade-in">
+              Compassion Bridge
+            </span>
           </div>
           
           {/* Desktop menu */}
           <div className="hidden lg:flex items-center space-x-6">
             <div className="flex items-center space-x-4">
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-primary">
-                <Globe size={20} />
-                <span>Select Language</span>
-                <ChevronDown size={16} />
-              </button>
-              <a href="#find-local" className="text-gray-700 hover:text-primary">Find Your Local Branch</a>
-              <a href="#news" className="text-gray-700 hover:text-primary">News</a>
-              <a href="#partner" className="text-gray-700 hover:text-primary">Partner With Us</a>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-primary">
+                  <Globe size={20} />
+                  <span>{currentLanguage.nativeName}</span>
+                  <ChevronDown size={16} />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {languages.map((lang) => (
+                    <DropdownMenuItem 
+                      key={lang.code}
+                      onClick={() => setLanguage(lang)}
+                    >
+                      {lang.nativeName}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <div className="flex items-center space-x-4">
+                <a href="#find-local" className="text-gray-700 hover:text-primary">Find Your Local Branch</a>
+                <a href="#news" className="text-gray-700 hover:text-primary">News</a>
+                <a href="#partner" className="text-gray-700 hover:text-primary">Partner With Us</a>
+              </div>
             </div>
             <div className="flex items-center space-x-3">
               <Button variant="default">Donate</Button>
@@ -63,7 +88,25 @@ const Navbar = () => {
       {isSearchOpen && (
         <div className="absolute top-20 left-0 w-full bg-white shadow-lg z-50 p-4">
           <Command className="rounded-lg border shadow-md">
-            <CommandInput placeholder="Search..." />
+            <CommandInput 
+              placeholder="Search..." 
+              onValueChange={(value) => search(value)}
+            />
+            <CommandList>
+              <CommandEmpty>No results found.</CommandEmpty>
+              {results.length > 0 && (
+                <CommandGroup>
+                  {results.map((result) => (
+                    <CommandItem key={result.link}>
+                      <a href={result.link} className="flex flex-col">
+                        <span className="font-medium">{result.title}</span>
+                        <span className="text-sm text-gray-500">{result.description}</span>
+                      </a>
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              )}
+            </CommandList>
           </Command>
         </div>
       )}
@@ -74,7 +117,7 @@ const Navbar = () => {
           <div className="px-4 py-6 space-y-4">
             <button className="flex items-center space-x-2 w-full text-gray-700 hover:text-primary">
               <Globe size={20} />
-              <span>Select Language</span>
+              <span>{currentLanguage.nativeName}</span>
               <ChevronDown size={16} />
             </button>
             <a href="#find-local" className="block text-gray-700 hover:text-primary">Find Your Local Branch</a>
