@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
 
-## Project info
+# Compassion Bridge Initiative Website
 
-**URL**: https://lovable.dev/projects/e305de51-cbe4-4290-b77f-5517e5913af5
+A modern, responsive website for the Compassion Bridge Initiative, built with React and TypeScript.
 
-## How can I edit this code?
+## Overview
 
-There are several ways of editing your application.
+The Compassion Bridge Initiative website serves as a digital platform for our NGO, showcasing our mission to provide vital support and resources to individuals struggling with mental health issues, homelessness, and physical challenges.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e305de51-cbe4-4290-b77f-5517e5913af5) and start prompting.
+- Responsive design optimized for all devices
+- Modern UI components using shadcn/ui
+- SEO optimized with meta tags and JSON-LD
+- Accessible navigation
+- Interactive donation system
+- Site-wide search functionality
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- React Query
+- React Router
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project is configured for deployment on Vercel. Simply connect your GitHub repository to Vercel, and it will automatically deploy your application.
 
-**Use GitHub Codespaces**
+### Environment Variables
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+The following environment variables are required for deployment:
 
-## What technologies are used for this project?
+```env
+VITE_API_URL=your_api_url
+```
 
-This project is built with:
+## Browser Support
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The website is tested and supported on the following browsers:
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-## How can I deploy this project?
+## Contributing
 
-Simply open [Lovable](https://lovable.dev/projects/e305de51-cbe4-4290-b77f-5517e5913af5) and click on Share -> Publish.
+Please read our contributing guidelines before submitting pull requests.
 
-## Can I connect a custom domain to my Lovable project?
+## License
 
-Yes, you can!
+This project is proprietary and confidential.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
