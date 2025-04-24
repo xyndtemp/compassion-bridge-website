@@ -9,6 +9,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
+import { Link } from 'react-router-dom';
+import PATHS from '@/pages/paths';
 import { useSearch } from '@/hooks/use-search';
 import { useLanguage, languages } from '@/hooks/use-language';
 
@@ -49,9 +51,29 @@ const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
               <div className="flex items-center space-x-4">
-                <a href="#find-local" className="text-gray-700 hover:text-primary">Find Your Local Branch</a>
-                <a href="#news" className="text-gray-700 hover:text-primary">News</a>
-                <a href="#partner" className="text-gray-700 hover:text-primary">Partner With Us</a>
+                <Link to={PATHS.index} className="text-gray-700 hover:text-primary">Home</Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="flex items-center space-x-1 text-gray-700 hover:text-primary">
+                    <span>About</span>
+                    <ChevronDown size={16} />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem asChild>
+                      <Link to={PATHS.about.mission}>Our Mission</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to={PATHS.about.vision}>Our Vision</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to={PATHS.about.whatWeDo}>What We Do</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to={PATHS.about.goals}>Our Goals</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <Link to={PATHS.gallery} className="text-gray-700 hover:text-primary">Gallery</Link>
+                <Link to={PATHS.contact} className="text-gray-700 hover:text-primary">Contact</Link>
               </div>
             </div>
             <div className="flex items-center space-x-3">
