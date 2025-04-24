@@ -9,6 +9,7 @@ const PATHS = {
     },
     contact: '/contact',
     gallery: '/gallery',
+    donate: '/donate',
 };
 
 export default PATHS;

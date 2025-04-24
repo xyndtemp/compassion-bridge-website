@@ -15,6 +15,7 @@ const Mission = lazy(() => import('./about/Mission'));
 const Vision = lazy(() => import('./about/Vision'));
 const WhatWeDo = lazy(() => import('./about/WhatWeDo'));
 const Goals = lazy(() => import('./about/Goals'));
+const Donate = lazy(() => import('./Donate'));
 
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
       <Route path={PATHS.about.whatWeDo} element={<WhatWeDo />} />
       <Route path={PATHS.about.goals} element={<Goals />} />
       <Route path={PATHS.gallery} element={<Gallery />} />
+      <Route path={PATHS.donate} element={<Donate />} />
       <Route path={PATHS.contact} element={<Contact />} />
       <Route path="*" element={<NotFound />} />
     </>

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Menu, X, Search, ChevronDown, Globe } from 'lucide-react';
 import { Button } from './ui/button';
-import { Input } from './ui/input';
 import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem } from './ui/command';
 import {
   DropdownMenu,
@@ -13,8 +12,14 @@ import { Link } from 'react-router-dom';
 import PATHS from '@/pages/paths';
 import { useSearch } from '@/hooks/use-search';
 import { useLanguage, languages } from '@/hooks/use-language';
+import Logo from './Logo';
+import React from "react";
 
-const Navbar = () => {
+interface NavbarProps {
+  showLogo?: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ showLogo = true }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { search, results } = useSearch();
@@ -25,9 +30,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
-            <span className="text-2xl font-bold text-primary animate-fade-in">
-              Compassion Bridge
-            </span>
+            {showLogo && <Logo />}
           </div>
           
           {/* Desktop menu */}
@@ -77,8 +80,12 @@ const Navbar = () => {
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <Button variant="default">Donate</Button>
-              <Button variant="outline">Get Help</Button>
+              <Button variant="default" asChild>
+                <Link to={PATHS.donate}>Donate</Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link to={PATHS.contact}>Get Help</Link>
+              </Button>
               <button
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
                 className="p-2 text-gray-700 hover:text-primary"
@@ -142,9 +149,18 @@ const Navbar = () => {
               <span>{currentLanguage.nativeName}</span>
               <ChevronDown size={16} />
             </button>
-            <a href="#find-local" className="block text-gray-700 hover:text-primary">Find Your Local Branch</a>
-            <a href="#news" className="block text-gray-700 hover:text-primary">News</a>
-            <a href="#partner" className="block text-gray-700 hover:text-primary">Partner With Us</a>
+            <Link to={PATHS.index} className="block text-gray-700 hover:text-primary">Home</Link>
+            <div>
+              <span className="block font-semibold text-gray-700 mt-2 mb-1">About</span>
+              <div className="ml-4 flex flex-col space-y-1">
+                <Link to={PATHS.about.mission} className="block text-gray-700 hover:text-primary">Our Mission</Link>
+                <Link to={PATHS.about.vision} className="block text-gray-700 hover:text-primary">Our Vision</Link>
+                <Link to={PATHS.about.whatWeDo} className="block text-gray-700 hover:text-primary">What We Do</Link>
+                <Link to={PATHS.about.goals} className="block text-gray-700 hover:text-primary">Our Goals</Link>
+              </div>
+            </div>
+            <Link to={PATHS.gallery} className="block text-gray-700 hover:text-primary">Gallery</Link>
+            <Link to={PATHS.contact} className="block text-gray-700 hover:text-primary">Contact</Link>
             <div className="flex flex-col space-y-2">
               <Button variant="default" className="w-full">Donate</Button>
               <Button variant="outline" className="w-full">Get Help</Button>
