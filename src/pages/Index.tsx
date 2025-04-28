@@ -13,14 +13,15 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-blue-900 to-blue-700 text-white py-16 md:py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white py-16 md:py-24">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')] mix-blend-overlay opacity-10"></div>
+        <div className="container mx-auto px-4 relative">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-10 md:mb-0">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
                 Building Bridges of Hope
               </h1>
-              <p className="text-lg md:text-xl mb-8 max-w-lg">
+              <p className="text-lg md:text-xl mb-8 max-w-lg backdrop-blur-sm bg-white/5 p-4 rounded-lg">
                 Join us in our mission to provide vital support and resources to
                 those struggling with mental health issues, homelessness, and
                 physical challenges.
@@ -29,14 +30,14 @@ const Index = () => {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-amber-500 hover:bg-amber-600 text-black font-medium"
+                  className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-black font-medium backdrop-blur-sm"
                 >
                   <Link to="/about">Learn More</Link>
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="border-white text-white hover:bg-white hover:text-blue-800"
+                  className="backdrop-blur-sm border-white/20 bg-white/10 text-white hover:bg-white/20"
                   onClick={() => setShowDonateQR(true)}
                 >
                   Scan to Donate
@@ -44,7 +45,8 @@ const Index = () => {
               </div>
             </div>
             <div className="md:w-5/12">
-              <div className="relative rounded-lg overflow-hidden shadow-xl">
+              <div className="relative rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-transparent"></div>
                 <img
                   src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="People helping each other"
@@ -57,8 +59,8 @@ const Index = () => {
         
         {/* Quarter circle slideshow positioned at bottom left */}
         <div className="absolute bottom-0 left-0 overflow-hidden w-64 h-64 md:w-80 md:h-80">
-          <div className="absolute bottom-0 left-0 w-[200%] h-[200%] bg-blue-600 rounded-full transform translate-x-[-25%] translate-y-[25%]">
-            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 w-48 h-48 md:w-56 md:h-56 overflow-hidden rounded-lg">
+          <div className="absolute bottom-0 left-0 w-[200%] h-[200%] bg-gradient-to-tr from-blue-800 to-blue-600 rounded-full transform translate-x-[-25%] translate-y-[25%]">
+            <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 w-48 h-48 md:w-56 md:h-56 overflow-hidden rounded-lg backdrop-blur-md bg-white/10">
               <ImageSlideshow />
             </div>
           </div>
@@ -66,14 +68,14 @@ const Index = () => {
       </section>
 
       {/* Mission Summary Section */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-12 md:py-20 bg-gradient-to-b from-white to-blue-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Our Impact</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">Our Impact</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card>
+            <Card className="backdrop-blur-md bg-white/80 border-0 shadow-xl hover:shadow-2xl transition-shadow">
               <CardContent className="pt-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-8 w-8 text-blue-700"
@@ -89,7 +91,7 @@ const Index = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Mental Health Support</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-blue-900">Mental Health Support</h3>
                   <p className="text-gray-600">
                     Providing counseling and resources to those struggling with mental health issues.
                   </p>
@@ -97,10 +99,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="backdrop-blur-md bg-white/80 border-0 shadow-xl hover:shadow-2xl transition-shadow">
               <CardContent className="pt-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-8 w-8 text-blue-700"
@@ -116,7 +118,7 @@ const Index = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Homelessness Initiatives</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-blue-900">Homelessness Initiatives</h3>
                   <p className="text-gray-600">
                     Creating sustainable solutions for individuals experiencing homelessness.
                   </p>
@@ -124,10 +126,10 @@ const Index = () => {
               </CardContent>
             </Card>
             
-            <Card>
+            <Card className="backdrop-blur-md bg-white/80 border-0 shadow-xl hover:shadow-2xl transition-shadow">
               <CardContent className="pt-6">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-8 w-8 text-blue-700"
@@ -143,7 +145,7 @@ const Index = () => {
                       />
                     </svg>
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">Disability Support</h3>
+                  <h3 className="text-xl font-semibold mb-2 text-blue-900">Disability Support</h3>
                   <p className="text-gray-600">
                     Empowering individuals with disabilities through accessibility and inclusion programs.
                   </p>
